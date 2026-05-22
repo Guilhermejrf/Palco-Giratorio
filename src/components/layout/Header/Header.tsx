@@ -9,6 +9,11 @@ const titleFromPath = (path: string) => {
   if (path === '/') return 'Dashboard'
   const segment = path.split('/').filter(Boolean)[0]
   if (!segment) return 'Dashboard'
+  const titles: Record<string, string> = {
+    rede: 'Contratação em Bloco',
+    metricas: 'Índice Cultural',
+  }
+  if (titles[segment]) return titles[segment]
   return segment.charAt(0).toUpperCase() + segment.slice(1)
 }
 
@@ -39,12 +44,6 @@ export const Header = () => {
           ))}
         </div>
       </div>
-      <Link
-        className="hidden min-h-10 items-center justify-center rounded-lg border border-[var(--color-secondary-300)] px-4 py-2 text-sm font-semibold text-[var(--color-secondary-500)] transition hover:bg-[var(--color-secondary-50)] md:inline-flex"
-        to="/demo"
-      >
-        Modo Demo
-      </Link>
       <NotificationBell />
       <div className="grid h-9 w-9 place-items-center rounded-full bg-[var(--color-primary-700)] text-sm font-bold text-white">
         {user?.name.charAt(0) ?? 'P'}

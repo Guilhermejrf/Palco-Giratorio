@@ -12,10 +12,10 @@ export default {
         cream: 'var(--color-cream)',
         charcoal: 'var(--color-charcoal)',
         terracotta: 'var(--color-secondary-300)',
-        teal: 'var(--color-primary-300)',
+        gold: 'var(--color-accent-300)',
       },
       boxShadow: {
-        soft: '0 4px 20px rgba(44, 38, 32, 0.08)',
+        soft: '0 4px 20px rgba(13, 13, 13, 0.08)',
       },
     },
   },

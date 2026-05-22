@@ -1,10 +1,10 @@
-import { Bed, Boxes, Headphones, Hotel, Lightbulb, MapPinned, Star, Truck } from 'lucide-react'
+import { Bed, Boxes, Headphones, Hotel, Lightbulb, MapPinned, Music2, Star, Truck, Users } from 'lucide-react'
 import type { Resource } from '../../../types/resource.types'
 import { formatCurrency } from '../../../utils/formatters'
 import { Button } from '../../ui/Button/Button'
 import { Card } from '../../ui/Card/Card'
 
-const iconByType = {
+const iconByType: Record<string, React.ElementType> = {
   Som: Headphones,
   Luz: Lightbulb,
   Palco: Boxes,
@@ -12,6 +12,8 @@ const iconByType = {
   Hospedagem: Hotel,
   Técnicos: Star,
   Espaços: Bed,
+  'Grupos Locais': Music2,
+  Produtores: Users,
   Outros: MapPinned,
 }
 
@@ -46,10 +48,10 @@ export const ResourceCard = ({ resource, onRequest }: ResourceCardProps) => {
         <span
           className={`rounded-full px-2.5 py-1 text-xs font-bold ${
             resource.availability === 'available'
-              ? 'bg-[#C8DBC8] text-[var(--color-primary-700)]'
+              ? 'bg-[var(--color-accent-200)] text-[var(--color-primary-700)]'
               : resource.availability === 'busy'
                 ? 'bg-[var(--color-accent-100)] text-[var(--color-danger)]'
-                : 'bg-[#FAD4A0] text-[var(--color-charcoal)]'
+                : 'bg-[var(--color-accent-100)] text-[var(--color-charcoal)]'
           }`}
         >
           {availabilityLabel[resource.availability]}

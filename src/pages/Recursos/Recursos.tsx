@@ -6,6 +6,7 @@ import { Button } from '../../components/ui/Button/Button'
 import { Input } from '../../components/ui/Input/Input'
 import { Modal } from '../../components/ui/Modal/Modal'
 import { Select } from '../../components/ui/Select/Select'
+import { municipalities } from '../../constants/municipalities'
 import { useDemoDataStore } from '../../stores/demoDataStore'
 import type { Resource, ResourceType } from '../../types/resource.types'
 
@@ -18,12 +19,15 @@ const types: Array<ResourceType | ''> = [
   'Hospedagem',
   'Técnicos',
   'Espaços',
+  'Grupos Locais',
+  'Produtores',
   'Outros',
 ]
 
 export const Recursos = () => {
   const [type, setType] = useState('')
   const [availability, setAvailability] = useState('')
+  const [city, setCity] = useState('')
   const [registerOpen, setRegisterOpen] = useState(false)
   const [selectedResource, setSelectedResource] = useState<Resource | null>(null)
   const [resourceForm, setResourceForm] = useState({
@@ -41,7 +45,8 @@ export const Recursos = () => {
   const filtered = resources.filter((resource) => {
     const typeMatches = !type || resource.type === type
     const availabilityMatches = !availability || resource.availability === availability
-    return typeMatches && availabilityMatches
+    const cityMatches = !city || resource.city === city
+    return typeMatches && availabilityMatches && cityMatches
   })
 
   const finishRequest = () => {
@@ -81,7 +86,16 @@ export const Recursos = () => {
       <div className="grid gap-6 p-4 md:grid-cols-[260px_1fr] md:p-8">
         <aside className="space-y-4 rounded-2xl bg-white p-4">
           <Select
-            label="Tipo"
+            label="Município"
+            options={[
+              { label: 'Todos os municípios', value: '' },
+              ...municipalities.map((m) => ({ label: m.name, value: m.name })),
+            ]}
+            value={city}
+            onChange={(event) => setCity(event.target.value)}
+          />
+          <Select
+            label="Tipo de recurso"
             options={types.map((item) => ({ label: item || 'Todos', value: item }))}
             value={type}
             onChange={(event) => setType(event.target.value)}
@@ -90,7 +104,7 @@ export const Recursos = () => {
             label="Disponibilidade"
             options={[
               { label: 'Qualquer', value: '' },
-              { label: 'Disponível', value: 'available' },
+              { label: 'Disponível agora', value: 'available' },
               { label: 'Por agendamento', value: 'by_schedule' },
               { label: 'Ocupado', value: 'busy' },
             ]}
@@ -101,6 +115,15 @@ export const Recursos = () => {
             Raio de distância
             <input className="mt-3 w-full accent-[var(--color-secondary-300)]" max="200" min="0" type="range" />
           </label>
+          {(city || type || availability) && (
+            <button
+              className="w-full rounded-xl py-2 text-sm font-bold text-[var(--color-warm-gray)] hover:bg-[var(--color-cream)]"
+              onClick={() => { setCity(''); setType(''); setAvailability('') }}
+              type="button"
+            >
+              Limpar filtros
+            </button>
+          )}
         </aside>
         <section className="grid gap-4 lg:grid-cols-2 xl:grid-cols-3">
           {filtered.map((resource) => (

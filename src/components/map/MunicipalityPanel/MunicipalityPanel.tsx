@@ -46,7 +46,7 @@ export const MunicipalityPanel = ({ municipality, onClose }: MunicipalityPanelPr
       </div>
       <div className="mb-5 rounded-2xl bg-[var(--color-cream)] p-4">
         <div className="mb-2 flex items-end justify-between">
-          <span className="text-sm font-semibold">Índice de pulso</span>
+          <span className="text-sm font-semibold">Índice cultural</span>
           <strong className="font-mono text-3xl">{municipality.pulseIndex}</strong>
         </div>
         <div className="h-3 rounded-full bg-white">

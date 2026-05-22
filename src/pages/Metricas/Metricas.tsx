@@ -18,7 +18,7 @@ export const Metricas = () => {
   return (
     <div>
       <PageHeader
-        title="Índice Pulso Cena"
+        title="Índice de Acendimento Cultural"
         subtitle={`Leituras para ${period.toLowerCase()}, por região e município.`}
         actions={
           <div className="flex flex-wrap gap-2">
@@ -65,20 +65,25 @@ export const Metricas = () => {
           <div className="h-80">
             <ResponsiveContainer height="100%" width="100%">
               <LineChart data={pulseEvolution}>
-                <CartesianGrid stroke="#EDE5D8" vertical={false} />
+                <CartesianGrid stroke="var(--color-cream-dark)" vertical={false} />
                 <XAxis dataKey="month" />
                 <YAxis />
                 <Tooltip />
-                <Line dataKey="Recife" stroke="#2E5F7E" strokeWidth={3} />
-                <Line dataKey="Agreste" stroke="#C4755A" strokeWidth={3} />
-                <Line dataKey="Sertão" stroke="#7A2E3C" strokeWidth={3} />
-                <Line dataKey="Zona da Mata" stroke="#5AAEA0" strokeWidth={3} />
+                <Line dataKey="Recife" stroke="#0D0D0D" strokeWidth={3} />
+                <Line dataKey="Agreste" stroke="#B85C38" strokeWidth={3} />
+                <Line dataKey="Sertão" stroke="#8B3A22" strokeWidth={3} />
+                <Line dataKey="Zona da Mata" stroke="#D4A017" strokeWidth={3} />
               </LineChart>
             </ResponsiveContainer>
           </div>
         </Card>
         <section>
-          <h2 className="mb-4 font-display text-2xl">Municípios em alerta</h2>
+          <h2 className="mb-4 font-display text-2xl">
+            Municípios em alerta{' '}
+            <span className="ml-2 rounded-full bg-[var(--color-secondary-50)] px-3 py-1 text-sm font-normal text-[var(--color-secondary-500)]">
+              IAC abaixo de 30 — prioridade para novas rotas
+            </span>
+          </h2>
           <LowPulseCities />
         </section>
       </div>

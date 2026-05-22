@@ -8,6 +8,8 @@ export type ResourceType =
   | 'Hospedagem'
   | 'Técnicos'
   | 'Espaços'
+  | 'Grupos Locais'
+  | 'Produtores'
   | 'Outros'
 
 export interface Resource {

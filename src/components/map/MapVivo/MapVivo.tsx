@@ -90,7 +90,7 @@ export const MapVivo = ({ compact = false }: MapVivoProps) => {
               key={resource.id}
               center={[resource.coords.lat, resource.coords.lng]}
               radius={10}
-              pathOptions={{ color: '#2E5F7E', fillColor: '#A8CDE8', fillOpacity: 0.55 }}
+              pathOptions={{ color: '#0D0D0D', fillColor: '#F2C94C', fillOpacity: 0.55 }}
             >
               <Popup>
                 <strong>{resource.name}</strong>

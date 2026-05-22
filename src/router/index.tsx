@@ -13,6 +13,7 @@ import { EspetaculosList } from '../pages/Espetaculos/EspetaculosList/Espetaculo
 import { Logistica } from '../pages/Logistica/Logistica'
 import { MapaVivoPage } from '../pages/MapaVivo/MapaVivoPage'
 import { Metricas } from '../pages/Metricas/Metricas'
+import { Rede } from '../pages/Rede/Rede'
 import { Recursos } from '../pages/Recursos/Recursos'
 
 export const router = createBrowserRouter([
@@ -31,6 +32,7 @@ export const router = createBrowserRouter([
       { path: 'escolas', element: <Escolas /> },
       { path: 'metricas', element: <Metricas /> },
       { path: 'logistica', element: <Logistica /> },
+      { path: 'rede', element: <Rede /> },
       { path: 'perfil', element: <Navigate to="/" replace /> },
     ],
   },

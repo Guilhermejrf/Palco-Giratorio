@@ -22,7 +22,7 @@ export const Demo = () => {
     <main className="min-h-screen overflow-hidden bg-[var(--color-primary-700)] p-4 text-white md:p-8">
       <div className="mb-6 flex items-center justify-between gap-3">
         <div>
-          <h1 className="font-display text-3xl md:text-[52px]">Pulso Cena PE</h1>
+          <h1 className="font-display text-3xl md:text-[52px]">Acende PE</h1>
           <p className="text-white/70">Modo pitch · municípios que acendem com circulação</p>
         </div>
         <Link to="/">
@@ -43,7 +43,7 @@ export const Demo = () => {
                 animate={{
                   scale: lit ? [1, 1.4, 1] : 1,
                   opacity: lit ? 1 : 0.35,
-                  backgroundColor: lit ? '#F5A87A' : '#C8C0B8',
+                  backgroundColor: lit ? '#F2C94C' : '#C8C8C8',
                 }}
                 className="absolute grid h-5 w-5 place-items-center rounded-full shadow-lg"
                 style={{ left: `${left}%`, top: `${top}%` }}

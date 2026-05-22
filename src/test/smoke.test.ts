@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { cityStatusColor, pulseLabel } from '../utils/colorUtils'
 import { formatCurrency } from '../utils/formatters'
 
-describe('Pulso Cena PE smoke checks', () => {
+describe('Acende PE smoke checks', () => {
   it('formats Brazilian currency', () => {
     expect(formatCurrency(1890)).toContain('R$')
     expect(formatCurrency(1890)).toContain('1.890')

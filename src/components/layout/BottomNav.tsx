@@ -6,7 +6,7 @@ const ITEMS = [
   { path: '/mapa', icon: MapPin, label: 'Mapa' },
   { path: '/circuitos', icon: Route, label: 'Rotas' },
   { path: '/espetaculos', icon: Package, label: 'Cenas' },
-  { path: '/metricas', icon: BarChart2, label: 'Índice' },
+  { path: '/metricas', icon: BarChart2, label: 'IAC' },
 ]
 
 export const BottomNav = () => (

@@ -4,7 +4,16 @@ import { Link, useNavigate } from 'react-router-dom'
 import { Button } from '../../../components/ui/Button/Button'
 import { Input } from '../../../components/ui/Input/Input'
 
-const profiles = ['Artista/Grupo', 'Técnico', 'Gestor Sesc', 'Escola', 'Espaço Cultural']
+const profiles = [
+  'Artista/Grupo',
+  'Técnico Local',
+  'Gestor Sesc',
+  'Escola',
+  'Espaço Cultural',
+  'Acolhimento',
+  'Fornecedor',
+  'Produtor Cultural',
+]
 
 export const Register = () => {
   const [profile, setProfile] = useState(profiles[0])
@@ -20,7 +29,7 @@ export const Register = () => {
       <div className="mx-auto max-w-3xl rounded-3xl bg-white p-6 shadow-soft">
         <h1 className="font-display text-3xl">Cadastro</h1>
         <p className="mb-6 text-sm text-[var(--color-warm-gray)]">Escolha seu perfil e complete os dados básicos.</p>
-        <div className="mb-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="mb-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {profiles.map((item) => (
             <button
               key={item}
@@ -36,7 +45,15 @@ export const Register = () => {
           <Input label="Nome" />
           <Input label="E-mail" type="email" />
           <Input label="Senha" type="password" />
-          <Input label={profile === 'Escola' ? 'INEP' : 'Telefone'} />
+          <Input label={profile === 'Escola' ? 'Código INEP' : profile === 'Fornecedor' ? 'CNPJ' : 'Telefone'} />
+          <Input label="Município de atuação" />
+          {profile === 'Artista/Grupo' && <Input label="Nome do grupo / companhia" />}
+          {profile === 'Técnico Local' && <Input label="Especialidade (som, luz, produção...)" />}
+          {profile === 'Gestor Sesc' && <Input label="Unidade Sesc" />}
+          {profile === 'Espaço Cultural' && <Input label="Capacidade do espaço (pessoas)" type="number" />}
+          {profile === 'Acolhimento' && <Input label="Número de vagas disponíveis" type="number" />}
+          {profile === 'Fornecedor' && <Input label="Categoria de serviços" />}
+          {profile === 'Produtor Cultural' && <Input label="Grupos que representa" />}
         </div>
         <div className="mt-6 flex items-center gap-3">
           <Button onClick={confirmRegister}>Confirmar cadastro</Button>

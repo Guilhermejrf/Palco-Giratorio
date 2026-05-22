@@ -27,7 +27,7 @@ export const Login = () => {
       <section className="relative overflow-hidden bg-[var(--color-primary-700)] p-8 text-white">
         <DecorativeShape shape="star" color="var(--color-secondary-200)" className="-right-16 top-12" />
         <DecorativeShape shape="eye" color="var(--color-primary-200)" className="-bottom-16 left-10" />
-        <h1 className="relative z-10 font-display text-3xl md:text-[52px]">Pulso Cena PE</h1>
+        <h1 className="relative z-10 font-display text-3xl md:text-[52px]">Acende PE</h1>
         <p className="relative z-10 mt-4 max-w-md text-white/75">
           Quando uma cidade recebe cena, ela acende no mapa. Quando várias acendem juntas, nasce um circuito.
         </p>

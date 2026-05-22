@@ -6,6 +6,7 @@ import {
   MapPin,
   Menu,
   Package,
+  Radio,
   Route,
   Theater,
   Truck,
@@ -16,12 +17,13 @@ import { useUIStore } from '../../../stores/uiStore'
 
 const NAV_ITEMS = [
   { path: '/', icon: LayoutDashboard, label: 'Início', badge: null },
+  { path: '/rede', icon: Radio, label: 'Contratação em Bloco', badge: null },
   { path: '/mapa', icon: MapPin, label: 'Mapa Vivo', badge: null },
   { path: '/espetaculos', icon: Theater, label: 'Espetáculos', badge: null },
   { path: '/circuitos', icon: Route, label: 'Circuitos', badge: '3' },
   { path: '/recursos', icon: Package, label: 'Banco de Recursos', badge: null },
   { path: '/escolas', icon: GraduationCap, label: 'Escolas', badge: null },
-  { path: '/metricas', icon: BarChart2, label: 'Índice de Cena', badge: null },
+  { path: '/metricas', icon: BarChart2, label: 'Índice Cultural', badge: null },
   { path: '/logistica', icon: Truck, label: 'Central Logística', badge: null },
 ]
 
@@ -48,7 +50,7 @@ export const Sidebar = () => {
         </button>
         {!collapsed ? (
           <div>
-            <h1 className="font-display text-lg leading-none">Pulso Cena PE</h1>
+            <h1 className="font-display text-lg leading-none">Acende PE</h1>
             <p className="text-xs opacity-70">Sesc Pernambuco</p>
           </div>
         ) : null}

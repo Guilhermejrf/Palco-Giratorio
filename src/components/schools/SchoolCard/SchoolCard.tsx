@@ -6,16 +6,17 @@ import { Badge } from '../../ui/Badge/Badge'
 import { Button } from '../../ui/Button/Button'
 import { Card } from '../../ui/Card/Card'
 
-export const SchoolCard = ({ school }: { school: School }) => {
+interface SchoolCardProps {
+  school: School
+  onOpenConversation: (school: School) => void
+}
+
+export const SchoolCard = ({ school, onOpenConversation }: SchoolCardProps) => {
   const navigate = useNavigate()
 
   const addToRoute = () => {
     toast.success(`${school.name} adicionada como parada formativa sugerida.`)
     navigate('/circuitos/novo', { state: { schoolId: school.id } })
-  }
-
-  const scheduleVisit = () => {
-    toast.success(`Visita agendada para ${school.name}. Convite enviado ao responsável.`)
   }
 
   return (
@@ -53,8 +54,8 @@ export const SchoolCard = ({ school }: { school: School }) => {
         <Button icon={<CalendarPlus className="h-4 w-4" />} onClick={addToRoute} variant="secondary">
           Incluir na rota
         </Button>
-        <Button onClick={scheduleVisit} variant="ghost">
-          Agendar visita
+        <Button onClick={() => onOpenConversation(school)} variant="ghost">
+          Abrir tratativa
         </Button>
       </div>
     </Card>
